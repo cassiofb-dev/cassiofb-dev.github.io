@@ -1,0 +1,424 @@
+:root {
+  scroll-behavior: smooth;
+  --color-space: #000000;
+  --gradient-sunset-1: linear-gradient(#000000, #392033);
+  --gradient-sunset-2: linear-gradient(#392033, #fd6051);
+  --gradient-sunset-3: linear-gradient(#fd6051, #ff8967);
+  --gradient-sunset-4: linear-gradient(#ff8967, #fec051);
+  --gradient-sunset-5: linear-gradient(#fec051, #ffe577);
+  --color-nav: #333;
+  --color-nav-hover: #555;
+  --color-text: #DDD;
+  --color-link: #AAA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 10px;
+  font-size: calc(0.75vmax + 2.25vmin);
+  color: var(--color-text);
+  background-color: var(--color-link);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  width: 100%;
+  overflow: hidden;
+  animation: started 1s linear 13s forwards;
+}
+
+@keyframes started{
+  100% {
+    overflow: auto;
+  }
+}
+
+section {
+  border-top: 0.2rem solid white;
+  padding: 3rem 5% 5rem 5%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.5s;
+}
+
+a:hover {
+  color: var(--color-link)
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 90%;
+}
+
+.grid-container {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+}
+
+.nav-list {
+  top: 0;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  background-color: var(--color-nav);
+  opacity: 0;
+  animation: nav 2s linear 12s forwards;
+}
+
+@keyframes nav {
+  100% {
+    opacity: 1;
+  }
+}
+
+.nav-link {
+  width: 20%;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.5s;
+}
+
+.nav-link:hover {
+  background-color: var(--color-nav-hover);
+}
+
+@font-face {
+	font-family: "Star Wars";
+	src: url("./font/starwars.ttf");
+}
+
+#welcome-section {
+  height: 100vh;
+  border: none;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-space);
+}
+
+h1 {
+  position: absolute;
+  top: calc(50vh - 12vw);
+  left: 5%;
+  width: 90%;
+  color: var(--color-space);
+  font-size: 12vw;
+  line-height: 10vw;
+  font-weight: normal;
+  font-family: "Star Wars";
+  text-align: center;
+  opacity: 0;
+  animation: intro-name 4s linear 7s forwards;
+  text-shadow: -2px -2px 0 #ffd54e, -2px -1px 0 #ffd54e, -2px 0 0 #ffd54e, -2px 1px 0 #ffd54e, -2px 2px 0 #ffd54e, -1px -2px 0 #ffd54e, -1px -1px 0 #ffd54e, -1px 0 0 #ffd54e, -1px 1px 0 #ffd54e, -1px 2px 0 #ffd54e, 0 -2px 0 #ffd54e, 0 -1px 0 #ffd54e, 0 0 0 #ffd54e, 0 1px 0 #ffd54e, 0 2px 0 #ffd54e, 1px -2px 0 #ffd54e, 1px -1px 0 #ffd54e, 1px 0 0 #ffd54e, 1px 1px 0 #ffd54e, 1px 2px 0 #ffd54e, 2px -2px 0 #ffd54e, 2px -1px 0 #ffd54e, 2px 0 0 #ffd54e, 2px 1px 0 #ffd54e, 2px 2px 0 #ffd54e;
+}
+
+@keyframes intro-name {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+h2 {
+  margin-bottom: 3rem;
+  color: #4bd5ee;
+  font-size: 1.1rem;
+  opacity: 0;
+  animation: intro 5s linear forwards;
+}
+
+@keyframes intro {
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#space, .stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/*starfield code edited from Keith -> https://twitter.com/keithclarkcouk */
+
+#space {
+  height: 100vh;
+  top: 3rem;
+}
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 5s 9s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 10s;
+}
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: 11s;
+}
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: 12s;
+}
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: 13s;
+}
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 14s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+  } 
+  85% {
+    opacity: 1;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+
+h3 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+h4 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  color: var(--color-space);
+}
+
+p {
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+#about {
+  background: var(--gradient-sunset-1);
+}
+
+.flex {
+  margin: auto;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+#circle {
+  width: 256px;
+  height: 256px;
+  margin-bottom: 3rem;
+  border-radius: 50%;
+  border: 0.5rem dotted #fd6051;
+  transition: border-color 2s;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+#profile-img {
+  position: relative;
+  width: 90%;
+  margin: 5%;
+  border-radius: 50%;
+  animation: spin 10s linear infinite reverse;
+  filter: grayscale(100%) blur(3px);
+  transition: filter 1s;
+}
+
+#profile-img:hover {
+  filter: grayscale(0) blur(0);
+}
+
+#circle:hover {
+  border-color: gray;
+}
+
+.description {
+  text-align: justify;
+  width: 50%;
+}
+
+#zen-container {
+  width: 70%;
+  font-family: monospace;
+	padding: 2%;
+  margin: auto;
+  color: black;
+	background:linear-gradient(-120deg, #ffde57, #4584b6, #646464);
+}
+
+#video {
+  width: 70%;
+  height: 40vw;
+  margin: 2rem 15% 0 15%;
+}
+
+@media only screen and (orientation: portrait) {
+  .flex {
+    align-items: center;
+    flex-direction: column;
+  }
+  #circle {
+    width: 50vw;
+    height: 50vw;
+  }
+  .description {
+    width: auto;
+  }
+  #zen-container {
+    width: auto;
+  }
+}
+
+#skills {
+  background: var(--gradient-sunset-2);
+}
+
+.skills-grid {
+  max-width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+}
+
+.skill-tile {
+  width: 128px;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+}
+
+.skill-tile:hover {
+  background-color: rgba(0,0,0,0.3);
+  transform: scale(1.05);
+}
+
+.skill-img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#projects {
+  background: var(--gradient-sunset-3);
+}
+
+.projects-grid {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+  gap: 10px;
+}
+
+.project-tile {
+  min-width: 30%;
+  max-width: 70%;
+  margin: auto;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0,0,0,0.1);
+  transition: all 1s;
+}
+
+.project-tile:hover {
+  background-color: rgba(0,0,0,0.3);
+  transform: scale(1.1);
+}
+
+.project-img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 10px solid white;
+  transition: none;
+  filter: none;
+}
+
+#contact {
+  background: var(--gradient-sunset-4);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-tile {
+  width: 72px;
+  margin: 0 10px 0 10px;
+  transition: transform 1s;
+}
+
+.contact-tile:hover {
+  transform: translateY(-10px);
+}
+
+#footer {
+  height: 5rem;
+}
+
+#footer > p {
+  line-height: 5rem;
+  text-align: center;
+  color: #222;
+}
