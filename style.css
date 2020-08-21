@@ -337,6 +337,7 @@ p {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 1rem 5px;
 }
 
 .skill-tile {
@@ -363,15 +364,14 @@ p {
 }
 
 .projects-grid {
-  width: 80%;
+  max-width: 90%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-  gap: 10px;
+  gap: 3rem 10px;
 }
 
 .project-tile {
-  min-width: 30%;
   max-width: 70%;
   margin: auto;
   padding: 10%;
@@ -384,7 +384,7 @@ p {
 
 .project-tile:hover {
   background-color: rgba(0,0,0,0.3);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .project-img {
