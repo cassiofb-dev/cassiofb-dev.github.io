@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "Star Wars";
+	src: url("./font/starwars.ttf");
+}
+
 :root {
   scroll-behavior: smooth;
   --color-space: #000000;
@@ -84,11 +89,6 @@ img {
 
 .nav-link:hover {
   background-color: var(--color-nav-hover);
-}
-
-@font-face {
-	font-family: "Star Wars";
-	src: url("./font/starwars.ttf");
 }
 
 #welcome-section {
